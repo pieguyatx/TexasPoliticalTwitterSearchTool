@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-const Search = () => {
-    const defaultSearchTerm = 'vote';
+const Search = ({inputTerm}) => {
+    const defaultSearchTerm = inputTerm;
     const [term,setTerm] = useState(defaultSearchTerm);
 
     const searchTwitter = (term) => {
@@ -10,7 +11,7 @@ const Search = () => {
     }
 
     return (
-        <div className="search">
+        <div className="search ui container">
             <div className="ui form">
                 <div className="field">
                     <label>Search custom topic:</label>
@@ -21,6 +22,7 @@ const Search = () => {
                     />
                     <button 
                         onClick={e => searchTwitter(term)}
+                        className="ui button"
                     >Search</button>
                 </div>
             </div>
