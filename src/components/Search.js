@@ -22,7 +22,7 @@ const Search = ({inputTerm}) => {
                     />
                     <button 
                         onClick={e => searchTwitter(term)}
-                        className="ui button"
+                        className="ui button primary"
                     >Search</button>
                 </div>
             </div>
