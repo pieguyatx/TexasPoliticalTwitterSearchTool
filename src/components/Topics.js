@@ -10,12 +10,12 @@ const Topics = () => {
     });
 
     return (
-        <div className="topics ui container">
+        <section className="topics ui container">
             <h3>Topics</h3>
-            <div className="ui grid">
+            <div className="ui">
                 {TopicList}
             </div>
-        </div>
+        </section>
     );
 };
 

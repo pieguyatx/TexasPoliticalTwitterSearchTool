@@ -3,6 +3,7 @@ import Search from './components/Search';
 import Topics from './components/Topics';
 import Locations from './components/Locations';
 import Tweets from './components/Tweets';
+import './App.css';
 
 export default () => {
     return (
