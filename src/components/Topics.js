@@ -3,8 +3,8 @@ import topics from '../data/topics';
 
 const Topics = ({selectedTopics, setSelectedTopics}) => {
 
-    const updateSelectedTopics = (e) =>{
-        console.log("Updating selected topic array: "); // debug
+    const updateSelectedTopics = (topicText) =>{
+        console.log("Updating selected topic array: ", topicText); // debug        
 
     };
 
@@ -21,7 +21,7 @@ const Topics = ({selectedTopics, setSelectedTopics}) => {
             <button 
                 key={index} 
                 className={`topic-item ui button ${buttonColor}`}
-                onClick={updateSelectedTopics}
+                onClick={() => updateSelectedTopics(item[0])}  // need arrow function to pass string argument
             >
                 { item[0] }
             </button>
