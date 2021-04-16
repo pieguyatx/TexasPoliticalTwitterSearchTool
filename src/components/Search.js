@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './Search.css';
 
-const Search = ({inputTerm}) => {
-    const defaultSearchTerm = inputTerm;
-    const [term,setTerm] = useState(defaultSearchTerm);
+const Search = ({selectedTopic}) => {
+    const defaultSearchTermDisplayed = selectedTopic.join(', ');
+    const defaultSearchTerm = '"' + selectedTopic.join('" OR "') + '"'; // for twitter API?
+    console.log(defaultSearchTerm); // debug
 
     const searchTwitter = (term) => {
         // tbd
-        console.log(term);
+        console.log(term); // debug
     }
 
     return (
@@ -19,14 +20,15 @@ const Search = ({inputTerm}) => {
                     <label>Custom topic:</label>
                     <input 
                         className="input"
-                        value={term}
-                        onChange={e => setTerm(e.target.value)}
+                        value={defaultSearchTermDisplayed}
+                        // onChange={e => setTerm(e.target.value)}
                     />
+                    <button 
+                            onClick={e => searchTwitter(e.target.value)}
+                            className="ui button primary"
+                    >Search</button>
                 </div>
-                <button 
-                        onClick={e => searchTwitter(term)}
-                        className="ui button primary"
-                >Search</button>
+
             </div>
         </section>
     );

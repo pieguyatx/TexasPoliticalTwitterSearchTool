@@ -6,20 +6,25 @@ import Tweets from './components/Tweets';
 import './App.css';
 
 const App = () => {
-    const defaultTopic = ['voting','civil rights']; // array of starting topic
-    const [selectedTopics,setSelectedTopics] = useState(defaultTopic);
+    const defaultTopic = ['voting','vote']; // array of starting topic
+    const [selectedTopic,setSelectedTopic] = useState(defaultTopic);
 
     useEffect(() => {
-        console.log('"Topics" list updating...'); // debug
-    },[selectedTopics.length]);
+        console.log('"Topic" list and associated search terms updating...'); // debug
+    },[selectedTopic]);
 
     return (
         <div className="main ui container">
             <h1>Texas Political Twitter Search Tool</h1>
             <p>by Pius Wong</p>
-            <Topics selectedTopics={selectedTopics} setSelectedTopics={setSelectedTopics} />
+            <Topics 
+                selectedTopic={selectedTopic} 
+                setSelectedTopic={setSelectedTopic} 
+            />
             <Locations />
-            <Search inputTerm="vote"/>
+            <Search 
+                selectedTopic={selectedTopic}
+            />
             <Tweets />
         </div>
     );
