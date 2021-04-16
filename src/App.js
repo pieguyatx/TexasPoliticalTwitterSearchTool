@@ -6,8 +6,9 @@ import Tweets from './components/Tweets';
 import './App.css';
 
 const App = () => {
-    const defaultTopic = ['voting','vote']; // array of starting topic
+    const defaultTopic = ['']; // array of starting topic
     const [selectedTopic,setSelectedTopic] = useState(defaultTopic);
+    const [selectedLocation,setSelectedLocation] = useState('Austin');
 
     useEffect(() => {
         console.log('"Topic" list and associated search terms updating...'); // debug
@@ -21,9 +22,13 @@ const App = () => {
                 selectedTopic={selectedTopic} 
                 setSelectedTopic={setSelectedTopic} 
             />
-            <Locations />
+            <Locations 
+                selectedLocation={selectedLocation}
+                setSelectedLocation={setSelectedLocation}
+            />
             <Search 
                 selectedTopic={selectedTopic}
+                selectedLocation={selectedLocation}
             />
             <Tweets />
         </div>

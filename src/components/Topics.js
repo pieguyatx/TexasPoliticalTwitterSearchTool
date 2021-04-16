@@ -4,7 +4,7 @@ import topics from '../data/topics';
 const Topics = ({selectedTopic, setSelectedTopic}) => {
 
     const updateSelectedTopics = (topic) =>{
-        console.log("Updating selected topic array: ", topic[0]); // debug        
+        // console.log("Updating selected topic array: ", topic[0]); // debug        
         // new topic is NOT found in the old list...
         setSelectedTopic(topic);
     };

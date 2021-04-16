@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './Search.css';
 
-const Search = ({selectedTopic}) => {
+const Search = ({selectedTopic,selectedLocation}) => {
     const defaultSearchTermDisplayed = selectedTopic.join(', ');
     const defaultSearchTerm = '"' + selectedTopic.join('" OR "') + '"'; // for twitter API?
-    console.log(defaultSearchTerm); // debug
 
     const searchTwitter = (term) => {
         // tbd
-        console.log(term); // debug
+        console.log(`Searching for "${term}" in location: ${selectedLocation}`); // debug
     }
 
     return (
@@ -22,13 +21,13 @@ const Search = ({selectedTopic}) => {
                         className="input"
                         value={defaultSearchTermDisplayed}
                         // onChange={e => setTerm(e.target.value)}
+                        readonly
                     />
-                    <button 
-                            onClick={e => searchTwitter(e.target.value)}
-                            className="ui button primary"
-                    >Search</button>
                 </div>
-
+                <button 
+                    onClick={e => searchTwitter(defaultSearchTermDisplayed)}
+                    className="ui button primary"
+                >Search</button>
             </div>
         </section>
     );

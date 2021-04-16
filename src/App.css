@@ -1,3 +1,7 @@
 section {
     margin: 2em;
 }
+
+section .ui.button {
+    margin-bottom: 4px;
+}
