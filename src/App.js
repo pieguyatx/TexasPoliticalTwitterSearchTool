@@ -6,12 +6,12 @@ import Tweets from './components/Tweets';
 import './App.css';
 
 const App = () => {
-    const defaultTopic = ['voting']; // array of starting topic
+    const defaultTopic = ['voting','civil rights']; // array of starting topic
     const [selectedTopics,setSelectedTopics] = useState(defaultTopic);
 
     useEffect(() => {
-        console.log('"Topics" list updated...'); // debug
-    },[selectedTopics]);
+        console.log('"Topics" list updating...'); // debug
+    },[selectedTopics.length]);
 
     return (
         <div className="main ui container">
