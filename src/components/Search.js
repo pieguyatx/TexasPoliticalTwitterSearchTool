@@ -1,14 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import twitterphp from '../apis/twitterphp';
 import './Search.css';
 
 const Search = ({selectedTopic,selectedLocation}) => {
     const defaultSearchTermDisplayed = selectedTopic.join(', ');
     const defaultSearchTerm = '"' + selectedTopic.join('" OR "') + '"'; // for twitter API?
 
-    const searchTwitter = (term) => {
-        // tbd
+    const searchTwitter = async (term) => {
         console.log(`Searching for "${term}" in location: ${selectedLocation}`); // debug
+        const response = await twitterphp.get('',{
+            params: { // to be detailed more later
+                q: term 
+            }
+        });
+        console.log("Response: ",response);
     }
 
     return (
