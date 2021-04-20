@@ -16,7 +16,7 @@ const Search = ({selectedTopic,selectedLocation}) => {
             <h3>Search</h3>
             <div className="ui form">
                 <div className="field">
-                    <label>Custom topic:</label>
+                    <label>Search terms:</label>
                     <input 
                         className="input"
                         value={defaultSearchTermDisplayed}
