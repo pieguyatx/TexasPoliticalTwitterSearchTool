@@ -9,10 +9,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // debug end
 
-require_once "vendor/autoload.php";
-use Abraham\TwitterOAuth\TwitterOAuth;
-
-require_once "data/getVars.php";
+require_once('TwitterAPIExchange.php');
+require_once('data/getVars.php');
 
 
 echo '<h1>Test page for Twitter API</h1>';
@@ -22,15 +20,26 @@ define('CONSUMER_SECRET', $CONSUMER_SECRET);
 define('ACCESS_TOKEN', $ACCESS_TOKEN);
 define('ACCESS_TOKEN_SECRET', $ACCESS_TOKEN_SECRET);
 
-$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-$connection->setTimeouts(10, 15); // connection, request
+/** Set access tokens here - see: https://dev.twitter.com/apps/ **/
+$settings = array(    
+    'oauth_access_token' => ACCESS_TOKEN,    
+    'oauth_access_token_secret' => ACCESS_TOKEN_SECRET,    
+    'consumer_key' => CONSUMER_KEY,    
+    'consumer_secret' => CONSUMER_SECRET
+);
 
-$content = $connection->get("account/verify_credentials");
+$url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
+$requestMethod = "GET";
+$getfield = '?screen_name=iagdotme&count=20';
 
-$tweets = $connection->get("statuses/home_timeline", ["count" => 5, "exclude_replies" => true]);
-
+$twitter = new TwitterAPIExchange($settings);
 echo "<pre>";
-print_r($tweets);
+
+echo $twitter->setGetfield($getfield)             
+    ->buildOauth($url, $requestMethod)             
+    ->performRequest();
+
 echo "</pre>";
+
 
 ?>
