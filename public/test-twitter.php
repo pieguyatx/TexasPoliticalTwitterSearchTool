@@ -23,14 +23,13 @@ define('ACCESS_TOKEN', $ACCESS_TOKEN);
 define('ACCESS_TOKEN_SECRET', $ACCESS_TOKEN_SECRET);
 
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-$connection->setTimeouts(10, 15); // connection, request
+$connection->setTimeouts(20, 30); // connection, request
 
 $content = $connection->get("account/verify_credentials");
 
 $tweets = $connection->get("statuses/home_timeline", ["count" => 5, "exclude_replies" => true]);
+$tweetsJSON = json_encode($tweets);
 
-echo "<pre>";
-print_r($tweets);
-echo "</pre>";
+echo $tweetsJSON;
 
 ?>
