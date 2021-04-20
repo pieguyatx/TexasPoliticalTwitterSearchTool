@@ -23,7 +23,8 @@ define('ACCESS_TOKEN', $ACCESS_TOKEN);
 define('ACCESS_TOKEN_SECRET', $ACCESS_TOKEN_SECRET);
 
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-$connection->setTimeouts(30, 45); // connection, request
+$connection->setTimeouts(10, 15); // connection, request
+
 $content = $connection->get("account/verify_credentials");
 
 $tweets = $connection->get("statuses/home_timeline", ["count" => 5, "exclude_replies" => true]);
