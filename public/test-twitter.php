@@ -27,9 +27,11 @@ $connection->setTimeouts(20, 30); // connection, request
 
 $content = $connection->get("account/verify_credentials");
 
-$tweets = $connection->get("statuses/home_timeline", ["count" => 5, "exclude_replies" => true]);
+$tweets = $connection->get("search/tweets", ["q" => "voting OR voted", "point_radius" => "[-97.733330 30.266666 25mi]", "count" => 10]);
 $tweetsJSON = json_encode($tweets);
 
+echo "<pre>";
 echo $tweetsJSON;
+echo "</pre>";
 
 ?>
