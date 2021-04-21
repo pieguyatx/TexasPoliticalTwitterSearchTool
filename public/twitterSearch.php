@@ -20,7 +20,7 @@ $content = $connection->get("account/verify_credentials");
 $query = htmlspecialchars($_GET["q"]);
 $maxResults = htmlspecialchars($_GET["maxResults"]);
 
-$tweets = $connection->get("search/tweets", ["q" => $query, "point_radius" => "[-97.733330 30.266666 25mi]", "count" => $maxResults, "tweet_mode" => "extended"]);
+$tweets = $connection->get("search/tweets", ["q" => $query, "geocode" => "30.30086,-97.78262,25mi", "count" => $maxResults, "tweet_mode" => "extended"]);
 $tweetsJSON = json_encode($tweets);
 
 // echo "<pre>";
