@@ -12,7 +12,7 @@ const Tweets = ({searchResults}) => {
                     className="search-result tweet"
                 >
                     <div className="text">
-                        {result.text}
+                        {result.full_text}
                     </div>
                     <div className="date">
                         {result.created_at}
