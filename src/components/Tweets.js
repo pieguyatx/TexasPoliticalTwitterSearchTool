@@ -14,38 +14,36 @@ const Tweets = ({searchResults}) => {
                     <blockquote class="twitter-tweet">
                         <p>
                             <div className="text">
-                                {result.full_text}
+                                <a href={`https://twitter.com/q/status/${result.id}`} target="_blank">{result.full_text}</a>
                             </div>
                         </p>
-                        &mdash; <span className="user-screenname">{result.user.screen_name}</span>, {result.favorite_count} likes, {result.retweet_count} retweets
+                        &mdash; {result.favorite_count} likes, {result.retweet_count} retweets, <span className="user-screenname"><a target="_blank" href={`https://twitter.com/${result.user.screen_name}`}>{result.user.screen_name}</a></span>, "<span className="user-name">{result.user.name}"
+                        </span>
                     </blockquote>
                     <div className="date">
                         Created: {result.created_at}
                     </div>
-                    <div className="url">
-                        <a href={`https://twitter.com/q/status/${result.id}`} target="_blank">Direct link</a>
-                    </div>
                     <div className="user-info">
+                        <h5>More user info:</h5>
                         <div className="user-profileimage">
-                            <img src={result.user.profile_image_url} />
-                        </div>
-                        <div className="user-screenname">
-                            Handle: {result.user.screen_name}
-                        </div>
-                        <div className="user-name">
-                            Entered name: {result.user.name}
-                        </div>
-                        <div className="user-followerscount">
-                            Followers count: {result.user.followers_count}
+                            <div className="info-title">Avatar:</div>
+                            <div className="info-data"><img src={result.user.profile_image_url} /></div>
                         </div>
                         <div className="user-createdat">
-                            Profile created on: {result.user.created_at}
+                            <div className="info-title">Profile created on:</div> 
+                            <div className="info-data">{result.user.created_at}</div>
                         </div>
                         <div className="user-location">
-                            Location: {result.user.location}
+                            <div className="info-title">Location:</div>  
+                            <div className="info-data">{result.user.location}</div> 
                         </div>
                         <div className="user-description">
-                            Description: {result.user.description}
+                            <div className="info-title"> Description:</div>  
+                            <div className="info-data">{result.user.description}</div> 
+                        </div>
+                        <div className="user-followerscount">
+                            <div className="info-title">Followers count:</div>  
+                            <div className="info-data">{result.user.followers_count}</div> 
                         </div>
                     </div>
                     <hr />
