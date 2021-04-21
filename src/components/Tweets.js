@@ -11,20 +11,42 @@ const Tweets = ({searchResults}) => {
                     key={result.id}
                     className="search-result tweet"
                 >
-                    <div className="text">
-                        {result.full_text}
-                    </div>
+                    <blockquote class="twitter-tweet">
+                        <p>
+                            <div className="text">
+                                {result.full_text}
+                            </div>
+                        </p>
+                        &mdash; <span className="user-screenname">{result.user.screen_name}</span>, {result.favorite_count} likes, {result.retweet_count} retweets
+                    </blockquote>
                     <div className="date">
-                        {result.created_at}
+                        Created: {result.created_at}
                     </div>
                     <div className="url">
                         <a href={`https://twitter.com/q/status/${result.id}`} target="_blank">Direct link</a>
                     </div>
-                    <div className="user-name">
-                        {result.user.name}
-                    </div>
-                    <div className="user-profile">
-                        <img src={result.user.profile_image_url} />
+                    <div className="user-info">
+                        <div className="user-profileimage">
+                            <img src={result.user.profile_image_url} />
+                        </div>
+                        <div className="user-screenname">
+                            Handle: {result.user.screen_name}
+                        </div>
+                        <div className="user-name">
+                            Entered name: {result.user.name}
+                        </div>
+                        <div className="user-followerscount">
+                            Followers count: {result.user.followers_count}
+                        </div>
+                        <div className="user-createdat">
+                            Profile created on: {result.user.created_at}
+                        </div>
+                        <div className="user-location">
+                            Location: {result.user.location}
+                        </div>
+                        <div className="user-description">
+                            Description: {result.user.description}
+                        </div>
                     </div>
                     <hr />
                 </div>
@@ -36,14 +58,6 @@ const Tweets = ({searchResults}) => {
         <section className="topics ui container">
             <h3>Search Results</h3>
             <div className="ui">
-            TBD. Example embed tweet:
-                <blockquote class="twitter-tweet">
-                    <p lang="en" dir="ltr">
-                        <a href="https://twitter.com/WilliamShatner?ref_src=twsrc%5Etfw">@WilliamShatner</a> Good day, Captain. <a href="https://twitter.com/hashtag/ISS?src=hash&amp;ref_src=twsrc%5Etfw">#ISS</a> is in standard orbit and Commander Swanson has the conn. Hope you’re having a great weekend!
-                    </p>
-                    &mdash; NASA (@NASA) 
-                    <a href="https://twitter.com/NASA/status/495719809695621121?ref_src=twsrc%5Etfw">August 2, 2014</a>
-                </blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 <div>
                     {searchDisplay}
                 </div>
