@@ -17,12 +17,16 @@ const Tweets = ({searchResults}) => {
                     <div className="date">
                         {result.created_at}
                     </div>
+                    <div className="url">
+                        <a href={`https://twitter.com/q/status/${result.id}`} target="_blank">Direct link</a>
+                    </div>
                     <div className="user-name">
                         {result.user.name}
                     </div>
                     <div className="user-profile">
                         <img src={result.user.profile_image_url} />
                     </div>
+                    <hr />
                 </div>
             );
         });
