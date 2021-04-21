@@ -8,6 +8,7 @@ const Search = ({selectedTopic,selectedLocation,setSearchResults}) => {
 
     const searchTwitter = async (term) => {
         console.log(`Searching for "${term}" in location: ${selectedLocation}`); // debug
+        term = term + " -filter:retweets";
         const response = await twitterphp.get('',{
             params: { // to be detailed more later
                 q: term 
