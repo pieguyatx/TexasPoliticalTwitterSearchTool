@@ -31,7 +31,7 @@ const Search = ({selectedTopic,selectedLocation,setSearchResults}) => {
                     />
                 </div>
                 <button 
-                    onClick={e => searchTwitter(defaultSearchTermDisplayed)}
+                    onClick={e => searchTwitter(defaultSearchTerm)}
                     className="ui button primary"
                 >Search</button>
             </div>

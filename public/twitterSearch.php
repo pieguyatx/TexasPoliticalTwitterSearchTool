@@ -17,7 +17,9 @@ $connection->setTimeouts(20, 30); // connection, request
 
 $content = $connection->get("account/verify_credentials");
 
-$tweets = $connection->get("search/tweets", ["q" => "voting OR voted", "point_radius" => "[-97.733330 30.266666 25mi]", "count" => 10]);
+$query = htmlspecialchars($_GET["q"]);
+
+$tweets = $connection->get("search/tweets", ["q" => $query, "point_radius" => "[-97.733330 30.266666 25mi]", "count" => 10]);
 $tweetsJSON = json_encode($tweets);
 
 // echo "<pre>";
