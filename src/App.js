@@ -9,9 +9,10 @@ const App = () => {
     const defaultTopic = ['']; // array of starting topic
     const [selectedTopic,setSelectedTopic] = useState(defaultTopic);
     const [selectedLocation,setSelectedLocation] = useState('Austin');
+    const [searchResults,setSearchResults] = useState([]);
 
     useEffect(() => {
-        console.log('"Topic" list and associated search terms updating...'); // debug
+        console.log('Rerendering!'); // debug
     },[selectedTopic]);
 
     return (
@@ -29,8 +30,11 @@ const App = () => {
             <Search 
                 selectedTopic={selectedTopic}
                 selectedLocation={selectedLocation}
+                setSearchResults={setSearchResults}
             />
-            <Tweets />
+            <Tweets 
+                searchResults={searchResults}
+            />
         </div>
     );
 }

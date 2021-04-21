@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import twitterphp from '../apis/twitterphp';
 import './Search.css';
 
-const Search = ({selectedTopic,selectedLocation}) => {
+const Search = ({selectedTopic,selectedLocation,setSearchResults}) => {
     const defaultSearchTermDisplayed = selectedTopic.join(', ');
     const defaultSearchTerm = '"' + selectedTopic.join('" OR "') + '"'; // for twitter API?
 
@@ -13,7 +13,8 @@ const Search = ({selectedTopic,selectedLocation}) => {
                 q: term 
             }
         });
-        console.log("Response: ",response);
+        // console.log("Response: ",response); // debug
+        setSearchResults(response.data.statuses);
     }
 
     return (
