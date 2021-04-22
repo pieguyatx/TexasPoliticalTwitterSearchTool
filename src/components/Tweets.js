@@ -24,28 +24,36 @@ const Tweets = ({searchResults}) => {
                         </div>
                     </blockquote>
                     <h5>More user info:</h5>
-                    <div className="user-info">
-                        <div className="user-profileimage">
-                            <div className="info-title">Avatar:</div>
-                            <div className="info-data"><img src={result.user.profile_image_url} /></div>
-                        </div>
-                        <div className="user-createdat">
-                            <div className="info-title">Profile created on:</div> 
-                            <div className="info-data">{result.user.created_at}</div>
-                        </div>
-                        <div className="user-location">
-                            <div className="info-title">Location:</div>  
-                            <div className="info-data">{result.user.location}</div> 
-                        </div>
-                        <div className="user-description">
-                            <div className="info-title"> Description:</div>  
-                            <div className="info-data">{result.user.description}</div> 
-                        </div>
-                        <div className="user-followerscount">
-                            <div className="info-title">Followers count:</div>  
-                            <div className="info-data">{result.user.followers_count}</div> 
-                        </div>
-                    </div>
+                    <table className="user-info ui very basic collapsing celled table">
+                        <thead>
+                            <tr>
+                                <th className="info-title">Avatar</th>
+                                <th>Location</th>
+                                <th>Profile Created on</th>
+                                <th>Followers:</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="user-profileimage info-data">
+                                    <img src={result.user.profile_image_url} />
+                                </td>
+                                <td className="user-location info-data">
+                                  {result.user.location}
+                                </td>
+                                <td className="user-createdat info-data">
+                                    {result.user.created_at}
+                                </td>
+                                <td className="user-followerscount info-data">
+                                    {result.user.followers_count}
+                                </td>
+                                <td className="user-description info-data">
+                                    {result.user.description}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <hr />
                 </div>
             );
