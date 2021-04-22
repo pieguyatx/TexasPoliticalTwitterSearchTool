@@ -19,12 +19,12 @@ const Tweets = ({searchResults}) => {
                         </p>
                         &mdash; {result.favorite_count} likes, {result.retweet_count} retweets, <span className="user-screenname"><a target="_blank" href={`https://twitter.com/${result.user.screen_name}`}>{result.user.screen_name}</a></span>, "<span className="user-name">{result.user.name}"
                         </span>
+                        <div className="date">
+                            {result.created_at}
+                        </div>
                     </blockquote>
-                    <div className="date">
-                        Created: {result.created_at}
-                    </div>
+                    <h5>More user info:</h5>
                     <div className="user-info">
-                        <h5>More user info:</h5>
                         <div className="user-profileimage">
                             <div className="info-title">Avatar:</div>
                             <div className="info-data"><img src={result.user.profile_image_url} /></div>
@@ -53,8 +53,9 @@ const Tweets = ({searchResults}) => {
     }
 
     return (
-        <section className="topics ui container">
+        <section className="results ui container">
             <h3>Search Results</h3>
+            <hr />
             <div className="ui">
                 <div>
                     {searchDisplay}

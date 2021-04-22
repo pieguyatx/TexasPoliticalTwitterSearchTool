@@ -5,3 +5,20 @@ section {
 section .ui.button {
     margin-bottom: 4px;
 }
+
+.twitter-tweet {
+    border: solid 10px lightgray;
+    padding: 0.5em;
+    font-size: 1.5em;
+}
+
+.twitter-tweet .text {
+    font-size: 1.25em;
+    line-height: 1.25em;
+}
+
+.twitter-tweet .date {
+    margin: 0.25em 1em 0.25em 1em;
+    font-size: 1em;
+    font-style: italic;
+}
