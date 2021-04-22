@@ -3,6 +3,15 @@ import React from 'react';
 const Tweets = ({searchResults}) => {
     console.log("searchResults: ", searchResults); // debug
     // console.log(searchResults.length);  // debug
+
+    function dateParsed(dateString, yearOnly){
+        var date = dateString.replace("+0000 ", ""); 
+        if(yearOnly){
+            date = date.slice(-4);
+        }
+        return date;
+    };
+
     let searchDisplay = '';
     if(searchResults.length>0){
         searchDisplay = searchResults.map( (result) => {
@@ -20,7 +29,7 @@ const Tweets = ({searchResults}) => {
                         &mdash; {result.favorite_count} likes, {result.retweet_count} retweets, <span className="user-screenname"><a target="_blank" href={`https://twitter.com/${result.user.screen_name}`}>{result.user.screen_name}</a></span>, "<span className="user-name">{result.user.name}"
                         </span>
                         <div className="date">
-                            {result.created_at}
+                            {dateParsed(result.created_at)}
                         </div>
                     </blockquote>
                     <h5>More user info:</h5>
@@ -29,8 +38,8 @@ const Tweets = ({searchResults}) => {
                             <tr>
                                 <th className="info-title">Avatar</th>
                                 <th>Location</th>
-                                <th>Profile Created on</th>
-                                <th>Followers:</th>
+                                <th>Profile Since</th>
+                                <th>Followers</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
@@ -40,10 +49,10 @@ const Tweets = ({searchResults}) => {
                                     <img src={result.user.profile_image_url} />
                                 </td>
                                 <td className="user-location info-data">
-                                  {result.user.location}
+                                    {result.user.location}
                                 </td>
                                 <td className="user-createdat info-data">
-                                    {result.user.created_at}
+                                    {dateParsed(result.user.created_at,1)}
                                 </td>
                                 <td className="user-followerscount info-data">
                                     {result.user.followers_count}
