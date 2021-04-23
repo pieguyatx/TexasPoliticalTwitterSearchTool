@@ -16,6 +16,20 @@ const Tweets = ({searchResults}) => {
     if(searchResults.length>0){
         searchDisplay = searchResults.map( (result) => {
 
+            let warningFollowers = '';
+            if(result.user.followers_count<50){
+                warningFollowers = 'warning';
+            } 
+            let warningUserCreated = '';
+            let thisYear = new Date().getFullYear;
+            if(dateParsed(result.user.created_at,1)==thisYear){
+                warningUserCreated = 'warning';
+            }
+            let warning = '';
+            if(warningFollowers || warningUserCreated){
+                warning = 'warning';
+            }
+
             let mediaItems = '';
             if(result.entities.hasOwnProperty("media") && result.entities.media.length>0){
                 mediaItems = result.entities.media.map( (image) => {
@@ -32,7 +46,7 @@ const Tweets = ({searchResults}) => {
                     key={result.id}
                     className="search-result tweet"
                 >
-                    <blockquote class="twitter-tweet">
+                    <blockquote class={`twitter-tweet ${warning}`}>
                         <div className="media ui image right floated">
                             {mediaItems}
                         </div>
@@ -66,10 +80,10 @@ const Tweets = ({searchResults}) => {
                                 <td className="user-location info-data">
                                     {result.user.location}
                                 </td>
-                                <td className="user-createdat info-data">
+                                <td className={`user-createdat info-data ${warningUserCreated}`}>
                                     {dateParsed(result.user.created_at,1)}
                                 </td>
-                                <td className="user-followerscount info-data">
+                                <td className={`user-followerscount info-data ${warningFollowers}`}>
                                     {result.user.followers_count}
                                 </td>
                                 <td className="user-description info-data">

@@ -28,3 +28,7 @@ section .ui.button {
     height: 250px;
     object-fit: cover;
 }
+
+.twitter-tweet.warning, .ui.table td.warning {
+    background-color:tomato !important;
+}
