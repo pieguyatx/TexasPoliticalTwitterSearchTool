@@ -3,6 +3,7 @@ import Search from './components/Search';
 import Topics from './components/Topics';
 import Locations from './components/Locations';
 import Tweets from './components/Tweets';
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 import './App.css';
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
             <Tweets 
                 searchResults={searchResults}
             />
+            <ScrollUpButton />
         </div>
     );
 }
