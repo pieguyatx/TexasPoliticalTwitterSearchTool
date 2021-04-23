@@ -25,8 +25,12 @@ const Tweets = ({searchResults}) => {
             if(dateParsed(result.user.created_at,1)==thisYear){
                 warningUserCreated = 'warning';
             }
+            let warningLocation = '';
+            if(result.user.location.toLowerCase().includes('australia') || result.user.location.toLowerCase().includes('scotland')){
+                warningLocation = 'warning';
+            }
             let warning = '';
-            if(warningFollowers || warningUserCreated){
+            if(warningFollowers || warningUserCreated || warningLocation){
                 warning = 'warning';
             }
 
@@ -77,7 +81,7 @@ const Tweets = ({searchResults}) => {
                                 <td className="user-profileimage info-data">
                                     <img src={result.user.profile_image_url} />
                                 </td>
-                                <td className="user-location info-data">
+                                <td className={`user-location info-data ${warningLocation}`}>
                                     {result.user.location}
                                 </td>
                                 <td className={`user-createdat info-data ${warningUserCreated}`}>
