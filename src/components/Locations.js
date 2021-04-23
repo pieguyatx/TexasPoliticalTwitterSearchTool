@@ -9,7 +9,7 @@ const Locations = ({selectedLocation, setSelectedLocation}) => {
 
     const LocationList = locations.map( (location, index) => {
         let buttonColor = "gray";
-        if(selectedLocation===location){
+        if(selectedLocation[0]===location[0]){
             buttonColor = "orange";
         }
         return (
@@ -18,7 +18,7 @@ const Locations = ({selectedLocation, setSelectedLocation}) => {
                 className={`location-item ui button ${buttonColor}`}
                 onClick={() => updateSelectedLocations(location)}  // need arrow function to pass string argument
             >
-                { location }
+                { location[0] }
             </button>
         );
     });

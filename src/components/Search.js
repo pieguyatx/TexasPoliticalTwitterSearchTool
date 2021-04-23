@@ -11,7 +11,8 @@ const Search = ({selectedTopic,selectedLocation,setSearchResults}) => {
         term = term + " -filter:retweets";
         const response = await twitterphp.get('',{
             params: { // to be detailed more later
-                q: term 
+                q: term,
+                geocode: selectedLocation[1] 
             }
         });
         // console.log("Response: ",response); // debug
