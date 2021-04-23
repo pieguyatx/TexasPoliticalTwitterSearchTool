@@ -10,6 +10,7 @@ section .ui.button {
     border: solid 10px lightgray;
     padding: 0.5em;
     font-size: 1.5em;
+    overflow: hidden;
 }
 
 .twitter-tweet .text {
@@ -21,4 +22,9 @@ section .ui.button {
     margin: 0.25em 1em 0.25em 1em;
     font-size: 1em;
     font-style: italic;
+}
+
+.twitter-tweet .media-item .image {
+    height: 250px;
+    object-fit: cover;
 }

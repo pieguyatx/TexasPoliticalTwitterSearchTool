@@ -15,12 +15,27 @@ const Tweets = ({searchResults}) => {
     let searchDisplay = '';
     if(searchResults.length>0){
         searchDisplay = searchResults.map( (result) => {
+
+            let mediaItems = '';
+            if(result.entities.hasOwnProperty("media") && result.entities.media.length>0){
+                mediaItems = result.entities.media.map( (image) => {
+                    return (
+                        <div className="media-item">
+                            <img className="ui medium right floated image" src={image.media_url_https} />
+                        </div>
+                    );
+                } );
+            }
+            
             return(
                 <div
                     key={result.id}
                     className="search-result tweet"
                 >
                     <blockquote class="twitter-tweet">
+                        <div className="media ui image right floated">
+                            {mediaItems}
+                        </div>
                         <p>
                             <div className="text">
                                 <a href={`https://twitter.com/q/status/${result.id}`} target="_blank">{result.full_text}</a>
