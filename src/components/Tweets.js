@@ -13,7 +13,10 @@ const Tweets = ({searchResults}) => {
     };
 
     let searchDisplay = '';
-    if(searchResults.length>0){
+    if(typeof searchResults == 'undefined'){
+        searchDisplay = 'Error searching for tweets.';
+    }
+    else if(searchResults.length>0){
         searchDisplay = searchResults.map( (result) => {
 
             let warningFollowers = '';
@@ -100,6 +103,9 @@ const Tweets = ({searchResults}) => {
                 </div>
             );
         });
+    }
+    else {
+        searchDisplay = "No results found";
     }
 
     return (

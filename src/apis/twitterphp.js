@@ -1,7 +1,8 @@
 import axios from 'axios';
+import homepage from '../data/homepage.js';
 
 export default axios.create({
-    baseURL: 'http://localhost/test/twitterSearch.php',
+    baseURL: homepage + 'twitterSearch.php',
     params: {
         maxResults: 50
     }

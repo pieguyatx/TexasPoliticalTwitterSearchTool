@@ -1,11 +1,12 @@
 <?php
 
-header("Access-Control-Allow-Origin: http://localhost/test/");
-
 require_once "vendor/autoload.php";
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 require_once "data/getVars.php";
+
+$headerString = "Access-Control-Allow-Origin: " + $urlRoot;
+header($headerString);
 
 define('CONSUMER_KEY', $CONSUMER_KEY);
 define('CONSUMER_SECRET', $CONSUMER_SECRET);

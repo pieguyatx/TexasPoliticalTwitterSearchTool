@@ -23,7 +23,7 @@ define('ACCESS_TOKEN', $ACCESS_TOKEN);
 define('ACCESS_TOKEN_SECRET', $ACCESS_TOKEN_SECRET);
 
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-$connection->setTimeouts(20, 30); // connection, request
+$connection->setTimeouts(40, 50); // connection, request
 
 $content = $connection->get("account/verify_credentials");
 
