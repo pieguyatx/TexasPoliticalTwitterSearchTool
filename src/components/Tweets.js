@@ -82,7 +82,7 @@ const Tweets = ({searchResults}) => {
                         <tbody>
                             <tr>
                                 <td className="user-profileimage info-data">
-                                    <img src={result.user.profile_image_url} />
+                                    <img src={result.user.profile_image_url_https} />
                                 </td>
                                 <td className={`user-location info-data ${warningLocation}`}>
                                     {result.user.location}

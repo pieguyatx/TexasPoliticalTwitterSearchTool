@@ -1,7 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For live testing vs. local testing, adjust parameters in:
 
-## Available Scripts
-
-See https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/api-reference/get-search-tweets
+package.json
+public/data/getVars.php

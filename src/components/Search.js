@@ -16,7 +16,11 @@ const Search = ({selectedTopic,selectedLocation,setSearchResults}) => {
             }
         });
         // console.log("Response: ",response); // debug
-        setSearchResults(response.data.statuses);
+        if(typeof response.data.statuses == "undefined"){
+            setSearchResults = ('Error bringing data into main page.');
+        } else {
+            setSearchResults(response.data.statuses);
+        }
     }
 
     return (
