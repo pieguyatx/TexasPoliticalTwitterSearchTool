@@ -29,7 +29,7 @@ const Tweets = ({searchResults}) => {
                 warningUserCreated = 'warning';
             }
             let warningLocation = '';
-            if(result.user.location.toLowerCase().includes('australia') || result.user.location.toLowerCase().includes('scotland')){
+            if(result.user.location==='' || result.user.location.toLowerCase().includes('australia') || result.user.location.toLowerCase().includes('scotland')){
                 warningLocation = 'warning';
             }
             let warning = '';
